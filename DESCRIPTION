@@ -1,0 +1,28 @@
+Package: CelticInvasivePlantsdb
+Type: Package
+Title: Celtic Invasive Plants database
+Version: 0.1.0
+Author: Claudia González-Toral, Luz Madrazo-Frías, Aránzazu Estrada Fernández, Ricardo López-Alonso, Mauro Sanna, Candela Cuesta, Eduardo Cires & Juan Viruel 
+Maintainer: Claudia González-Toral <G_toralBiotix@outlook.com>
+Description: This is a occurrence database with a 10×10 km UTM grid resolution of the officially listed Alien Invasive Species (AIS) in the European Celtic Fringe [Portugal, Spain, France, the United Kingdom, the Republic of Ireland, and Denmark (specifically the Faroe Islands)].The occurrences are associated to taxonomic (Species, genus, family, order...), administrative (listed in the country or in EU Concern list, presence of protected area, Protected area metadata, grid national administrive levels...) and biogeography data (native/alien to the country, subprovince...).
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Imports:
+  tidyr,
+  dplyr,
+  magrittr,
+  stringr,
+  tibble,
+  purrr,
+  sf, 
+  ggplot2(>= 3.3.0),
+  patchwork (>= 1.3.0),
+  viridis,
+  rstudioapi,
+  osmdata,
+  systemfonts (>= 1.3.0),
+  ggspatial
+RoxygenNote: 7.3.3
+URL: https://github.com/Cgt93/CelticInvasivePlantsdb
+Roxygen: list(roclets = c("rd", "collate", "namespace"))

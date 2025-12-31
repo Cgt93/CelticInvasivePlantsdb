@@ -1,0 +1,315 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={CelticInvasivePlantsdb Manual},
+  pdfauthor={Claudia González-Toral, Luz Madrazo-Frías, Aránzazu Estrada Fernández, Ricardo López-Alonso, Mauro Sanna, Candela Cuesta, Eduardo Cires \& Juan Viruel},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{CelticInvasivePlantsdb Manual}
+\author{Claudia González-Toral, Luz Madrazo-Frías, Aránzazu Estrada
+Fernández, Ricardo López-Alonso, Mauro Sanna, Candela Cuesta, Eduardo
+Cires \& Juan Viruel}
+\date{09/12/2025}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\section{Introduction}\label{introduction}
+
+*This package allows to explore and select the data from the Celtic
+Invasive Plants database
+(\url{https://doi.org/10.5281/zenodo.17871899}). It allows to select
+specific areas or taxa, to generate automatic reports by area or taxon
+and obtain distribution and richness maps.
+
+\subsection{Features of the Celtic Invasive Plants
+database}\label{features-of-the-celtic-invasive-plants-database}
+
+\begin{itemize}
+\tightlist
+\item
+  Presents occurrence of Alien Invasive Species (AIS) at a 10×10 km UTM
+  grid resolution
+\item
+  Each occurrence is annotated with taxonomic, administrative and
+  biogeography data
+\item
+  The origin status at country and Celtic Fringe scope has been
+  annotated
+\item
+  The AIS checklist specifies the original name of the taxa in each
+  local AIS checklist
+\end{itemize}
+
+\section{Instalation of
+CelticInvasivePlantsdb}\label{instalation-of-celticinvasiveplantsdb}
+
+*This package was upload to a GitHub repository, therefore the users can
+use bothe devtools and remotes package to download and install the
+library.
+
+\subsection{Instalation with devtools}\label{instalation-with-devtools}
+
+\emph{\#First install and load the devtools library
+}install.packages(``devtools'') \emph{library(devtools) }\#Download and
+install the package using the GitHub repository
+\emph{devtools::install\_github(``Cgt93/CelticInvasivePlantsdb'') }\#Now
+load the library *library(CelticInvasivePlantsdb)
+
+\subsection{Instalation with
+devtools}\label{instalation-with-devtools-1}
+
+\emph{\#First install and load the remotes library
+}install.packages(``remotes'') *library(remotes)
+
+\emph{\#Now we download and instal the package using the GitHub
+repository }remotes::install\_github(``Cgt93/CelticInvasivePlantsdb'')
+\emph{\#Now load the library }library(CelticInvasivePlantsdb)
+
+\emph{Use Examples}
+
+library(CelticInvasivePlantsdb) \# Código de ejemplo
+
+\emph{References} - Biodiversity in Ireland, 2025. Invasive species of
+Ireland. Biodiversity in Ireland. Maps.
+\url{https://maps.biodiversityireland.ie/Species} (accessed 12.6.25). -
+Boyle, B., Hopkins, N., Lu, Z., Raygoza Garay, J.A., Mozzherin, D.,
+Rees, T., Matasci, N., Narro, M.L., Piel, W.H., Mckay, S.J., Lowry, S.,
+Freeland, C., Peet, R.K., Enquist, B.J., 2013. The taxonomic name
+resolution service: An online tool for automated standardization of
+plant names. BMC Bioinformatics 14, 1--15.
+\url{https://doi.org/10.1186/1471-2105-14-16} - Boyle, B.L., Matasci,
+N., Mozzherin, D., Rees, T., Barbosa, G.C., Kumar Sajja, R., Enquist,
+B.J., 2021. Taxonomic Name Resolution Service, version 5.1 . Botanical
+Information and Ecology Network. \url{https://tnrs.biendata.org/}
+(accessed 12.6.25). - González-Toral, C., Madrazo-Frías, L., Estrada
+Fernández, A., López-Alonso, R., Sanna, M., Cuesta, C., Cires, E. \&
+Viruel, J. (202) Celtic Invasive Plants database. Version December 2025.
+Zenodo.org \url{https://doi.org/10.5281/zenodo.17871899} - Department
+for Environment Food \& Rural Affairs and Animal and Plant Health, 2024.
+Invasive non-native (alien) plant species: rules in England and Wales.
+Gov.UK.
+\url{https://www.gov.uk/guidance/invasive-non-native-alien-plant-species-rules-in-england-and-wales\#list-of-invasive-plant-species}
+(accessed 12.6.25). - Dudley, N. (Ed.), 2008. Guidelines for Applying
+Protected Area Management Categories. IUCN Publications Services, Gland,
+Switzerland. - European Commission, 2016. Commission Implementing
+Regulation (EU) 2016/1141 of 13 July 2016 adopting a list of invasive
+alien species of Union concern pursuant to Regulation (EU) No 1143/2014
+of the European Parliament and of the Council. OJ L 189, 14.7.2016,
+pp.~4--8. C/2016/4295.
+\url{http://data.europa.eu/eli/reg_impl/2016/1141/oj} - European
+Commission, 2017. Commission Implementing Regulation (EU) 2017/1263 of
+12 July 2017 updating the list of invasive alien species of Union
+concern established by Implementing Regulation (EU) 2016/1141 pursuant
+to Regulation (EU) No 1143/2014 of the European Parliament and of the
+Council. OJ L 182, 13.7.2017, pp.~37--39. C/2017/4755.
+\url{http://data.europa.eu/eli/reg_impl/2017/1263/oj} - European
+Commission, 2019. Commission Implementing Regulation (EU) 2019/1262 of
+25 July 2019 amending Implementing Regulation (EU) 2016/1141 to update
+the list of invasive alien species of Union concern. OJ L 199,
+26.7.2019, pp.~1--4. C/2019/5360.
+\url{http://data.europa.eu/eli/reg_impl/2019/1262/oj} - European
+Commission, 2022. Commission Implementing Regulation (EU) 2022/1203 of
+12 July 2022 amending Implementing Regulation (EU) 2016/1141 to update
+the list of invasive alien species of Union concern. OJ L 186,
+13.7.2022, pp.~10--13. C/2022/4773.
+\url{http://data.europa.eu/eli/reg_impl/2022/1203/oj} - European
+Commission, 2025. Commission Implementing Regulation (EU) 2025/1422 of
+17 July 2025 amending Implementing Regulation (EU) 2016/1141 to update
+the list of invasive alien species of Union concern. OJ L, 2025/1422,
+18.7.2025. C/2025/4769.
+\url{http://data.europa.eu/eli/reg_impl/2025/1422/oj} - European Union,
+1992. Council Directive 92/43/EEC of 21 May 1992 on the conservation of
+natural habitats and of wild fauna and flora. OJ L 206, 22.7.1992,
+pp.~7--50. \url{http://data.europa.eu/eli/dir/1992/43/oj} - European
+Union, 2009. Directive 2009/147/EC of the European Parliament and of the
+Council of 30 November 2009 on the conservation of wild birds (Codified
+version). OJ L 20, 26.1.2010, pp.~7--25.
+\url{http://data.europa.eu/eli/dir/2009/147/oj} - European Environment
+Agency (EEA), 2025a. Emerald Network data (vector) - the Pan-European
+network of protected sites version 2024
+\url{https://doi.org/10.2909/135a0bb6-c611-4c2c-823d-a564be119ad8} -
+European Environment Agency (EEA), 2024. Nationally designated areas for
+public access (vector data) - May 2024
+\url{https://doi.org/10.2909/616ef48f-7196-4e30-b201-6c97808fa68a} -
+European Environment Agency (EEA), 2025b. Natura 2000 (tabular) -
+version end 2023
+\url{https://www.eea.europa.eu/en/datahub/datahubitem-view/6fc8ad2d-195d-40f4-bdec-576e7d1268e4}
+- Fernández Prieto, J.A., Amigo, J., Bueno, A., Herrera, M.,
+Rodríguez-Guitián, M.A., Loidi, J., 2020. Notas sobre el Catálogo de
+comunidades de plantas vasculares de los territorios iberoatlánticos
+(I). Nat. Cantab. 8, 17--37.
+\url{https://www.indurot.uniovi.es/actividades/publicaciones/caturalia-cantabricae/volumen-8}
+- GB non-native species secretariat 2025. Non-Native Species Secretariat
+(NNSS) Species of Special Concern. Non-Native Species Secretariat
+(NNSS).
+\url{https://www.nonnativespecies.org/legislation/species-of-special-concern\#List-plants}
+(accessed 12.3.25). - Govaerts, R. (ed.), 2023. WCVP: World Checklist of
+Vascular Plants, Version 12. Royal Botanic Gardens, Kew.
+\url{https://sftp.kew.org/pub/data-repositories/WCVP/} (accessed
+12.7.25). - Govaerts, R., Nic Lughadha, E., Black, N., Turner, R.,
+Paton, A., 2021. The World Checklist of Vascular Plants, a continuously
+updated resource for exploring global plant diversity. Sci. Data 8,
+1--10. \url{https://doi.org/10.1038/s41597-021-00997-6} - Instituto
+Geográfico Nacional, 2024. España. Regiones biogeográficas.Instituto
+Geográfico Nacional. Centro de descargas. URL
+\url{https://centrodedescargas.cnig.es/CentroDescargas/busquedaRedirigida.do?ruta=PUBLICACION_CNIG_DATOS_VARIOS/aneTematico/Espana_Regiones-biogeograficas_2024_mapa_19246_spa.zip}
+(accessed 11.1.25). - Inventaire National du Patrimoine Naturel (INPN),
+2025. ERéférentiel taxonomique des espèces des territoires français.
+Référentiel taxonomique (Tax Ref) version 18.
+\url{https://www.patrinat.fr/fr/page-temporaire-de-telechargement-des-referentiels-de-donnees-lies-linpn-7353}
+(accessed 12.6.25). - Minister for Arts Heritage and the Gaeltacht,
+2011. European Communities (Birds and Natural Habitats) Regulations
+2011. Wt. (B28719). 500. 9/11.
+\url{https://www.irishstatutebook.ie/eli/2011/si/477} - Minister for
+Housing Local Government and Heritage, 2024. Statutory Instruments.
+European Union (Invasive Alien Species) Regulations 2024. Iris Oifigiúil
+(IEAD-1) 30. 7/24. Propylon.
+\url{https://www.irishstatutebook.ie/eli/2024/si/374/made/en/print} -
+Ministère de la Transition Écologique et Solidaire, 2018. Arrêté du 14
+février 2018 relatif à la prévention de l'introduction et de la
+propagation des espèces végétales exotiques envahissantes sur le
+territoire métropolitain. JORF n°0044 du 22 février 2018.NOR :
+TREL1704132A.
+\url{https://www.legifrance.gouv.fr/loda/id/JORFTEXT000036629837/} -
+Ministère de la Transition Écologique et Solidaire, 2020. Arrêté du 10
+mars 2020 portant mise à jour de la liste des espèces animales et
+végétales exotiques envahissantes sur le territoire métropolitain. JORF
+n°0118 du 14 mai 2020, Texte n° 7. NOR : TREL1924265A.
+\url{https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000041875937} -
+Ministeriet for Fødevarer Landbrug og Fiskeri, 2018. Bekendtgørelse om
+forebyggelse og håndtering af introduktion og spredning af invasive
+ikkehjemmehørende arter på EU-listen og om en national liste med
+handelsforbud m.v. over for invasive arter. BEK nr 1285 af 12/11/2018.
+\url{https://www.retsinformation.dk/eli/lta/2018/1285} - Ministeriet for
+Grøn Trepart, 2025. De invasive arter. De invasive artslister. Arter.
+\url{https://sgavmst.dk/arter/artsforvaltning/invasive-arter/de-invasive-arter}
+(accessed 12.5.25). - Ministerio para la Transición Ecológica, 2019.
+Real Decreto 216/2019, de 29 de marzo, por el que se aprueba la lista de
+especies exóticas invasoras preocupantes para la región ultraperiférica
+de las islas Canarias y por el que se modifica el Real Decreto 630/2013,
+de 2 de agosto, por el que se regula el Catálogo español de especies
+exóticas invasoras. «BOE» núm. 77, de 30/03/2019. BOE-A-2019-4675.
+\url{https://www.boe.es/eli/es/rd/2019/03/29/216/con} - Ministerio para
+la Transición Ecológica y el Reto Demográfico, 2020. Orden
+TED/1126/2020, de 20 de noviembre, por la que se modifica el Anexo del
+Real Decreto 139/2011, de 4 de febrero, para el desarrollo del Listado
+de Especies Silvestres en Régimen de Protección Especial y del Catálogo
+Español de Especies Amenazadas, y el Anexo del Real Decreto 630/2013, de
+2 de agosto, por el que se regula el Catálogo Español de Especies
+Exóticas Invasoras.BOE-A-2020-15296. «BOE» núm. 314, de 1 de diciembre
+de 2020, páginas 108167 a 108171 (5 págs.).
+\url{https://www.boe.es/eli/es/o/2020/11/20/ted1126} - Ministerio para
+la Transición Ecológica y el Reto Demográfico, 2023a. Orden
+TED/339/2023, de 30 de marzo, por la que se modifica el anexo del Real
+Decreto 139/2011, de 4 de febrero, para el desarrollo del Listado de
+Especies Silvestres en Régimen de Protección Especial y del Catálogo
+Español de Especies Amenazadas, y el anexo del Real Decreto 630/2013, de
+2 de agosto, por el que se regula el Catálogo Español de Especies
+Exóticas Invasoras.«BOE» núm. 83, de 7 de abril de 2023, páginas 50910 a
+50915 (6 págs.). BOE-A-2023-8751.
+\url{https://www.boe.es/eli/es/o/2023/03/30/ted339} - Ministerio para la
+Transición Ecológica y el Reto Demográfico, 2023b. Catálogo Español de
+Especies Exóticas Invasoras. MITECO. URL
+\url{https://www.miteco.gob.es/es/biodiversidad/temas/conservacion-de-especies/especies-exoticas-invasoras/ce-eei-catalogo.aspx}
+(accessed 6.11.23). - National Biodiversity Data Centre Of the Republic
+of Ireland, 2023. Discrete vascular plant surveys. Data.Gov.IE.
+\url{https://data.gov.ie/dataset/discrete-vascular-plant-surveys}
+(accessed 3.10.23). - Presidência do Conselho de Ministros Ambiente e
+Transição Energética, 2019. Assegura a execução, na ordem jurídica
+nacional, do Regulamento (UE) n.o 1143/2014, estabelecendo o regime
+jurídico aplicável ao controlo, à detenção, à introdução na natureza e
+ao repovoamento de espécies exóticas da flora e da fauna. Diário da
+República n.º 130/2019, Série I de 2019-07-10. Decreto-Lei n.º 92/2019.
+\url{https://diariodarepublica.pt/dr/legislacao-consolidada/decreto-lei/2019-124568069}
+- Rees, T., 2014. Taxamatch, an Algorithm for Near (`Fuzzy') Matching of
+Scientific Names in Taxonomic Databases. PLoS One 9, e107510.
+\url{https://doi.org/10.1371/journal.pone.0107510} - Rivas-Martínez, S.,
+Penas, A., Díaz; T. E., 2001. Biogeographic map of Europe. Cartographic
+Service University of León, León. - Royal Botanic Gardens Kew, 2025.
+Plants of the World Online (POWO). Facilitated by the Royal Botanic
+Gardens, Kew. \url{http://www.plantsoftheworldonline.org/} (accessed
+4.1.25). - Royal Horticultural Society (RHS), 2025. Invasive plants
+covered by legislation. RHS.org
+\url{https://www.rhs.org.uk/prevention-protection/invasive-non-native-plants}
+(accessed 12.4.25). - Stolton, S., Shadie, P., Dudley, N., 2013. IUCN
+WCPA Best Practice Guidance on Recognising Protected Areas and Assigning
+Management Categories and Governance Types. Best Practice Protected Area
+Guidelines Series 21.
+\url{https://portals.iucn.org/library/sites/library/files/documents/pag-021.pdf}
+- The Angiosperm Phylogeny Group, 2016. An update of the Angiosperm
+Phylogeny Group classification for the orders and families of flowering
+plants: APG IV. Bot. J. Linn. Soc. 181, 399--436.
+\url{https://doi.org/10.1111/boj.12385} - The World Flora Online
+Consortium, Elliott, A., Hyam, R., Ulate, W., 2023. World Flora Online
+Plant List June 2023. Version 2023-06. Zenodo.org.
+\url{https://zenodo.org/records/8079052} (accessed 12.7.25).
+\url{https://doi.org/10.5281/zenodo.8079052} - Thomas, S., 2011. Natural
+England Commissioned Report NECR053: Horizon-scanning for invasive
+non-native plants in Great Britain (NECR053). Natural England.
+\url{https://publications.naturalengland.org.uk/publication/40015}
+
+\end{document}
