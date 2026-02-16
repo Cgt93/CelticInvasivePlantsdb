@@ -10,7 +10,7 @@ output:
 ---
 
 
-#*Introduction*
+# *Introduction*
 
 The European Atlantic Floristic region, characterized by high rainfall, oceanic climate, and floristic affinities, includes several subprovinces along the western edge of Europe. Although the limits of this floristic regions have long been disputed, the Celtic Fringe is recognized as its climatic and floristic core (Rivas-Martínez et al., 2017b; Buck & Hopkins, 1995; Roisin, 1969; Rivas-Martinez & Armaiz, 2014; European Environment Agency (EEA), 2003; Kozlowski et al., 2009). The Atlantic Ocean greatly influences its climate, which is characterized by mild temperatures with limited variation, high precipitations and low seasonality (European Environment Agency (EEA), 2003, 2017; Rivas-Martínez, Penas & Díaz, 2001; Buck & Hopkins, 1995; Fernández Prieto et al., 2020; Rivas-Martínez et al., 2017a). Celtic Fringe floristic province is formed by 4 subprovinces: the Cantabrian Atlantic subprovince, the Orocantabrian subprovince, the French Atlantic subprovince, and the Britannic subprovince (European Environment Agency (EEA), 2003; Rivas-Martínez, Penas & Díaz, 2001; Fernández Prieto et al., 2020; Buck & Hopkins, 1995; Roisin, 1969).
 The subprovinces' boundaries have been contention, however, we have followed those set by Rivas-Martínez, Penas & Díaz (2004), (European Environment Agency (EEA), 2017) and Fernández Prieto et al. (2020) to create our Celtic Fringe target area, encompassing  transitional zones influenced by Mediterranean, Central European, and Alpino-Caucasian elements (Rivas-Martínez et al., 2017a; Rivas-Martinez & Armaiz, 2014; Fernández Prieto et al., 2020) and both insular and continental areas. Consequently, the target area of the Celtic Invasive Plants database is formed by 8341 10x10 km UTM grids comprising territories in Portugal, Spain, France, the United Kingdom, the Republic of Ireland, and Denmark (specifically the Faroe Islands).
@@ -20,7 +20,7 @@ The subprovinces' boundaries have been contention, however, we have followed tho
 
 
 
-#*CelticInvasivePlantsdb*
+# *CelticInvasivePlantsdb*
 
 Using the list of invasive alien species of Union concern of the EU, the national checklists of these countries and species occurrences we generated the Celtic Invasive Plants database.This database is formed by 271 vascular plants (= Tracheophyta) Alien Invasive Species (AIS) and comprises 175769 occurrences, each enriched with taxonomic, floristic, and administrative metadata to enhance usability across multiple geographic and governance levels. This harmonized and standardized resource is designed to support AIS management strategies at local, national, and transnational scales, while facilitating conservation planning and advancing research on invasion dynamics.The CelticInvasivePlantsdb R package allows to explore and select the data from the Celtic Invasive Plants database.
 
@@ -147,7 +147,7 @@ BOE-A-2020-15296. «BOE» núm. 314, de 1 de diciembre de 2020, páginas 108167 
 
 
 
-#*Installation*
+# *Installation*
 
 ## Installation with devtools
 
@@ -177,7 +177,7 @@ library(CelticInvasivePlantsdb)
 
 
 
-#*Loading functions*
+# *Loading functions*
 
 ## Raw Celtic Invasive Plants database (CIPdb)
 This function loads the raw Celtic Invasive Plants database loaded from a CSV (tab separated) file as table object.
@@ -193,7 +193,7 @@ Data = CIPdb()
 head(Data)
 ```
 
-###Reference: 
+### Reference: 
 
 - González-Toral, C., Madrazo-Frías, L., Estrada Fernández, A., López-Alonso, R., Sanna, M., Cuesta, C., Cires, E. & Viruel, J. (202) Celtic Invasive Plants database. Version December 2025. Zenodo.org https://doi.org/10.5281/zenodo.17871899
 
@@ -353,7 +353,7 @@ head(Grids_details)
 
 
 
-#*Selecting functions*
+# *Selecting functions*
 
 ## Conducting a value query within the  Celtic Invasive Plants database (CIP_value_query)
 
@@ -485,7 +485,7 @@ Selection of entries of the Celtic Invasive Plants database based on a WDPA PID 
 
 WDPA_PID_select_CIPdb(data, query)
 
-###Function parameters:
+### Function parameters:
 
 * 'data' argument must be the table obtained from CIPdb() or another selection of this (i. e. Select_CIPdb).
 * 'query' argument must be either a character string or a vector of character strings.This must coincide with the WDPA PIDs (classification and data descriptor for more detail).
@@ -556,7 +556,7 @@ This can be applied before or after the Select_CIPdb() function.
 
 
 
-#*Report functions*
+# *Report functions*
 
 ## Automatic General Report of Celtic Invasive Plants database or selections (General_Report_CIPdb)
 
@@ -696,7 +696,7 @@ My_Tax_report <- Taxa_Report_CIPdb(Data, "Taxa_ID", My_species)
 
 
 
-#*Richness, Distribution and Occupation functions*
+# *Richness, Distribution and Occupation functions*
 
 ## Taxa richness of Celtic Invasive Plants database or selections (Taxa_Rich_CIPdb)
 
@@ -784,7 +784,7 @@ The optimal way of using this function is in combination with the  Select_CIPdb(
 
 
 
-#*Mapping functions*
+# *Mapping functions*
 
 ## UTM grids Taxa richness mapping (UTM_Rich_map)
 
@@ -804,7 +804,7 @@ UTM_Rich_map(data, Admin_Scope = "ALL", Area_type = "ALL", Title = "Taxa_Richnes
 * 'lines' argument allows to add administrative borders. By default this is set to "NULL", which will not add the administrative lines. The input of this argument must be one of the following character strings: "Subprovince", "Country", "Admin_units_II", "Constituent_Country_OR_Crown_Dependency" and "Admin_units_III".
 * 'reserves' argument allows to add Natural reserves polygons.By default this is set to "NULL", which will not add the administrative lines. The input of this argument must be one of the following character strings: "Natura_2000" and "National_Parks".
 
-###Usage examples:
+### Usage examples:
 
 ```{r}
 #This provides the taxa richness of species, genera and families in the whole area with different lines
@@ -856,7 +856,7 @@ Admin_Rich_Occup_map(data, Representation_type = "richness", Admin_Scope = "Coun
 * 'Admin_Scope' allows to select data obtained using Taxa_Rich_CIPdb() function (= data object) based on administrative features of the grids. By default this is set to "Country", which will not filter the data object. If the user wishes to filter this data 'Admin_Scope' input the must  be either a character string or a vector of character strings. This must a valid value within the following columns:"UTM_grid", "Subprovince", "Country", "Admin_units_II", "Constituent_Country_OR_Crown_Dependency", "Admin_units_III",  "National_Nature_Reserve_Name, and Natura_2000_Name.
 * 'Title' this allows the user to assign a name for the output folder.
 
-###Usage examples:
+### Usage examples:
 
 ```{r}
 #This provides a heatmap of the species richness of the French, Spain and Portugal at "Admin_units_II"
@@ -913,7 +913,7 @@ Tax_Distribution_map(data, query, Taxa_Scope = "Taxa", Admin_query = "ALL", Admi
 * 'reserves' argument allows to add Natural reserves polygons.By default this is set to "NULL", which will not add the administrative lines. The input of this argument must be one of the following character strings: "Natura_2000" and "National_Parks".
 
  
-###Usage examples:
+### Usage examples:
 
 ```{r}
 #This provides distribution of Abutilon theophrasti and Phytolacca americana in the whole Celtic Fringe.
@@ -959,4 +959,5 @@ Tax_Distribution_Admin_map(Data, query = c("Abutilon theophrasti", "Phytolacca a
 #This provides distribution of the genus Acacia in the Spain and France representing the reserves as well
 Tax_Distribution_Admin_map(Data, Taxa_Scope = "Genus", "Acacia", Admin_query = c("Spain", "France"), Admin_Scope = "Country", Title = "Acacia_Distribution")
 ```
+
 
