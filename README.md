@@ -1,4 +1,4 @@
-#*CelticInvasivePlantsdb*
+# *CelticInvasivePlantsdb*
 
 This package allows to explore and select the data from the Celtic Invasive Plants database.
 
@@ -30,7 +30,7 @@ remotes::install_github("Cgt93/CelticInvasivePlantsdb")
 library(CelticInvasivePlantsdb)
 ```
 
-#*Functions*
+# *Functions*
 
 | Function | Description | Type |
 |----------|-------------|------|
