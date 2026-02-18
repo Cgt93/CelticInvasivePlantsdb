@@ -182,8 +182,6 @@ Taxa_Occup_CIPdb <- function(data, Scope_taxa, Scope_Area, output_name = "Taxa_O
 .mapa_UK_Crown_dependencies <- st_read(system.file("extdata", "UK_Crown_dependencies_CIP.gpkg", package = "CelticInvasivePlantsdb"))
 .mapa_Admin_units_II <- st_read(system.file("extdata", "Admin_Units_II_CIP.gpkg", package = "CelticInvasivePlantsdb"))
 .mapa_Admin_units_III <- st_read(system.file("extdata", "Admin_Units_III_CIP.gpkg", package = "CelticInvasivePlantsdb"))
-.Shp_30 <- st_read(system.file("extdata", "Grids_CIP_2025.gpkg", package = "CelticInvasivePlantsdb"), layer = "Grids_Zone_30")
-.Shp_29 <- st_read(system.file("extdata", "Grids_CIP_2025.gpkg", package = "CelticInvasivePlantsdb"), layer = "Grids_Zone_29")
 
 crs_objetivo <- st_crs(.Shp_30)
 .Shp_31 <- st_transform(.Shp_31, crs_objetivo)
@@ -785,6 +783,7 @@ Tax_Distribution_Admin_map <- function(data, query, Taxa_Scope = "Taxa", Admin_q
     assign(map_name, map_plot, envir = .GlobalEnv)
   }
 }
+
 
 
 
