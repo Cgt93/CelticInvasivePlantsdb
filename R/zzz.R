@@ -12,3 +12,10 @@
   message(paste("El archivo existe:", file_path))
 }
 
+
+.onLoad <- function(libname, pkgname) {
+  if (!file.exists(system.file("extdata", "Grids_CIP_2025.gpkg", package = pkgname))) {
+    git2r::lfs_pull(repo = ".")
+  }
+  # resto del código
+}
