@@ -174,7 +174,7 @@ Taxa_Occup_CIPdb <- function(data, Scope_taxa, Scope_Area, output_name = "Taxa_O
 
 #Taxa Rich Graphs
 
-.Protected_Areas <- st_read(system.file("ext", "Emerald_NatDA_2024_&_Natura_2000_CIP_2025.gpkg", package = "CelticInvasivePlantsdb"))
+.Protected_Areas <- st_read(system.file("ext", "Emerald_NatDA_2024_&_Natura_2000_CIP_2025.gpkg", package = "CelticInvasivePlantsdb"), driver = "GPKG")
 .mapa_celtic_fringe <- st_read(system.file("ext", "CIP_Celtic_Fringe.gpkg", package = "CelticInvasivePlantsdb"))
 .mapa_Subprovince <- st_read(system.file("ext", "CIP_Subprovinces.gpkg", package = "CelticInvasivePlantsdb"))
 .mapa_Country <- st_read(system.file("ext", "Countries_CIP.gpkg", package = "CelticInvasivePlantsdb"))
@@ -785,4 +785,5 @@ Tax_Distribution_Admin_map <- function(data, query, Taxa_Scope = "Taxa", Admin_q
     assign(map_name, map_plot, envir = .GlobalEnv)
   }
 }
+
 
