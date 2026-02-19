@@ -1,10 +1,15 @@
 #inst/instakl_scripts/install_data.R
 library(remotes)
 
-data_file = "Grids_CIP_2025.gpkg"
-data_path = file.path("inst/extdata", data_file)
-
-if (!file.exists(data_path)) {
-  url = "https:
-  download.file(url, data_path, mode = "wb")
+Downloading_maps <- function() {
+  url <- "https://zenodo.org/records/18630660/files/Grids_CIP_2025.gpkg?download=1"
+  destino <- system.file("extdata", "Grids_CIP_2025.gpkg", package = "CelticInvasivePlantsdb")
+  
+  if (!file.exists(destino)) {
+    message("Downoloading grid map...")
+    download.file(url, destino, mode = "wb")
+    message("Grid map successfully downloaded")
+  }
+  
+  sf::st_read(destino)
 }
