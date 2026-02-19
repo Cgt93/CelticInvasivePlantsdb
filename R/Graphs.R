@@ -15,7 +15,6 @@ library(ggspatial)
 library(rlang)
 library(zip)
 library(svglite)
-library(terra)
 
 
 #Taxa Richness
@@ -801,6 +800,7 @@ Tax_Distribution_Admin_map <- function(data, query, Taxa_Scope = "Taxa", Admin_q
     assign(map_name, map_plot, envir = .GlobalEnv)
   }
 }
+
 
 
 
