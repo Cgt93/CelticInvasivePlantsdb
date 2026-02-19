@@ -18,3 +18,5 @@ export(Taxa_Report_CIPdb)
 export(Taxa_Rich_CIPdb)
 export(UTM_Rich_map)
 export(WDPA_PID_select_CIPdb)
+
+importFrom("utils", "packageVersion")
