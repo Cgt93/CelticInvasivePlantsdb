@@ -25,12 +25,11 @@ Imports:
   ggspatial,
   zip,
   rlang,
-  svglite,
-  terra,
-  remotes
+  svglite
 RoxygenNote: 7.3.3
 URL: https://github.com/Cgt93/CelticInvasivePlantsdb
 Roxygen: list(roclets = c("rd", "collate", "namespace"))
+
 
 
 
