@@ -181,8 +181,7 @@ Taxa_Occup_CIPdb <- function(data, Scope_taxa, Scope_Area, output_name = "Taxa_O
   
   if (!file.exists(destino)) {
     message("Downloading Grids map...")
-    .occup_db <- read.csv(url, header = TRUE, sep = "\t", stringsAsFactors = FALSE)
-    write.csv(.occup_db, destino, row.names = FALSE)
+    download.file(url, destino, mode = "wb")
     message("Grids map successfully downloaded")
   }
   
@@ -798,6 +797,7 @@ Tax_Distribution_Admin_map <- function(data, query, Taxa_Scope = "Taxa", Admin_q
     assign(map_name, map_plot, envir = .GlobalEnv)
   }
 }
+
 
 
 
