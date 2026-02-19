@@ -175,18 +175,12 @@ Taxa_Occup_CIPdb <- function(data, Scope_taxa, Scope_Area, output_name = "Taxa_O
 
 #Taxa Rich Graphs
 
-.Shp_31 <- function() {
-  url <- "https://zenodo.org/records/18630660/files/Grids_CIP_2025.gpkg?download=1"
-  destino <- system.file("extdata", "Grids_CIP_2025.gpkg", package = "CelticInvasivePlantsdb")
-  
-  if (!file.exists(destino)) {
-    message("Downloading Grids map...")
-    download.file(url, destino, mode = "wb")
-    message("Grids map successfully downloaded")
-  }
-  
-  st_read(destino, layer = "Grids_Zone_31")
-}
+message("Downloading Grids map...")
+.Shp_31 <- st_read("https://zenodo.org/records/18630660/files/Grids_CIP_2025.gpkg?download=1", layer = "Grids_Zone_31")
+.Shp_30 <- st_read("https://zenodo.org/records/18630660/files/Grids_CIP_2025.gpkg?download=1", layer = "Grids_Zone_30")
+.Shp_29 <- st_read("https://zenodo.org/records/18630660/files/Grids_CIP_2025.gpkg?download=1", layer = "Grids_Zone_29")
+message("Grids map successfully downloaded")
+
 .Protected_Areas <- st_read(system.file("extdata", "Emerald_NatDA_2024_&_Natura_2000_CIP_2025.gpkg", package = "CelticInvasivePlantsdb"))
 .mapa_celtic_fringe <- st_read(system.file("extdata", "CIP_Celtic_Fringe.gpkg", package = "CelticInvasivePlantsdb"))
 .mapa_Subprovince <- st_read(system.file("extdata", "CIP_Subprovinces.gpkg", package = "CelticInvasivePlantsdb"))
@@ -795,6 +789,7 @@ Tax_Distribution_Admin_map <- function(data, query, Taxa_Scope = "Taxa", Admin_q
     assign(map_name, map_plot, envir = .GlobalEnv)
   }
 }
+
 
 
 
