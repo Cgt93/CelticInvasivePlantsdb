@@ -180,15 +180,27 @@ message("Downloading Grids map...")
 .Shp_30 <- st_read("https://zenodo.org/records/18630660/files/Grids_CIP_2025.gpkg?download=1", layer = "Grids_Zone_30")
 .Shp_29 <- st_read("https://zenodo.org/records/18630660/files/Grids_CIP_2025.gpkg?download=1", layer = "Grids_Zone_29")
 message("Grids map successfully downloaded")
-
-.Protected_Areas <- st_read(system.file("extdata", "Emerald_NatDA_2024_&_Natura_2000_CIP_2025.gpkg", package = "CelticInvasivePlantsdb"))
-.mapa_celtic_fringe <- st_read(system.file("extdata", "CIP_Celtic_Fringe.gpkg", package = "CelticInvasivePlantsdb"))
-.mapa_Subprovince <- st_read(system.file("extdata", "CIP_Subprovinces.gpkg", package = "CelticInvasivePlantsdb"))
-.mapa_Country <- st_read(system.file("extdata", "Countries_CIP.gpkg", package = "CelticInvasivePlantsdb"))
-.mapa_UK_Crown_dependencies <- st_read(system.file("extdata", "UK_Crown_dependencies_CIP.gpkg", package = "CelticInvasivePlantsdb"))
-.mapa_Admin_units_II <- st_read(system.file("extdata", "Admin_Units_II_CIP.gpkg", package = "CelticInvasivePlantsdb"))
-.mapa_Admin_units_III <- st_read(system.file("extdata", "Admin_Units_III_CIP.gpkg", package = "CelticInvasivePlantsdb"))
-
+message("Downloading Protected Areas map...")
+.Protected_Areas <- st_read("https://zenodo.org/records/18630660/files/Emerald_NatDA_2024_&_Natura_2000_CIP_2025.gpkg?download=1")
+message("Protected Areas map successfully downloaded")
+message("Downloading Celtic Fringe map...")
+.mapa_celtic_fringe <- st_read("https://zenodo.org/records/18630660/files/CIP_Celtic_Fringe.gpkg?download=1")
+message("Celtic Fringe map successfully downloaded")
+message("Downloading Subprovinces map...")
+.mapa_Subprovince <- st_read("https://zenodo.org/records/18630660/files/CIP_Subprovinces.gpkg?download=1")
+message("Subprovinces map successfully downloaded")
+message("Downloading Countries map...")
+.mapa_Country <- st_read("https://zenodo.org/records/18630660/files/Countries_CIP.gpkg?download=1")
+message("Countries map successfully downloaded")
+message("Downloading UK Crown Dependencies map...")
+.mapa_UK_Crown_dependencies <- st_read("https://zenodo.org/records/18630660/files/UK_Crown_dependencies_CIP.gpkg?download=1")
+message("UK Crown Dependencies map successfully downloaded")
+message("Downloading Admin units II map...")
+.mapa_Admin_units_II <- st_read("https://zenodo.org/records/18630660/files/Admin_Units_II_CIP.gpkg?download=1")
+message("Admin units II map successfully downloaded")
+message("Downloading Admin units III map...")
+.mapa_Admin_units_III <- st_read("https://zenodo.org/records/18630660/files/Admin_Units_III_CIP.gpkg?download=1")
+message("Admin units III map successfully downloaded")
 crs_objetivo <- st_crs(.Shp_30)
 .Shp_31 <- st_transform(.Shp_31, crs_objetivo)
 
@@ -789,6 +801,7 @@ Tax_Distribution_Admin_map <- function(data, query, Taxa_Scope = "Taxa", Admin_q
     assign(map_name, map_plot, envir = .GlobalEnv)
   }
 }
+
 
 
 
