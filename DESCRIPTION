@@ -26,9 +26,12 @@ Imports:
   zip,
   rlang,
   svglite,
-  terra
+  terra,
+  remotes
 RoxygenNote: 7.3.3
 URL: https://github.com/Cgt93/CelticInvasivePlantsdb
 Roxygen: list(roclets = c("rd", "collate", "namespace"))
+remotes::install_github("Cgt93/CelticInvasivePlantsdb", INSTALL_opts = c("--install-scripts", "inst/install_scripts/install_data.R"))
+
 
 
